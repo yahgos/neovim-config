@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 --these will move selected lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -38,3 +37,4 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/the
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+vim.api.nvim_set_option("clipboard","unnamed")
