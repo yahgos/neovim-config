@@ -27,10 +27,20 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-Space>"] = cmpletion.mapping.complete(),
 })
 
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+cmpletion.setup({
+  snippet = {
+    expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+    end
+  },
+  mapping = cmp_mappings,
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+  }
 })
+
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
