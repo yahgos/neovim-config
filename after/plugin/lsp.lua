@@ -5,6 +5,8 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'rust_analyzer',
+    'powershell_es',
+    'csharp_ls',
 })
 
 -- Fix Undefined global 'vim'

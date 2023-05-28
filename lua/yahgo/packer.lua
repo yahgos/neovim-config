@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
     })
 
 
+    use("towolf/vim-helm")
     use("nvim-tree/nvim-tree.lua")
     use { "nvim-tree/nvim-web-devicons",
         conig = function()
@@ -55,7 +56,8 @@ return require('packer').startup(function(use)
         end
     }
 
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+
+ use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end }
 
