@@ -20,8 +20,6 @@ lsp.configure('lua-language-server', {
     }
 })
 
-
-
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
@@ -61,9 +59,10 @@ cmpletion.setup({
     mapping = cmp_mappings,
     sources = {
         { name = 'path' },
-        { name = 'nvim_lsp' },
         { name = 'buffer' },
+        { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'crates'},
     }
 })
 
