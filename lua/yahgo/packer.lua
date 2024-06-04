@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.x',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
     use("towolf/vim-helm")
     use("nvim-tree/nvim-tree.lua")
     use { "nvim-tree/nvim-web-devicons",
-        conig = function()
+        config = function()
             require 'nvim-web-devicons'.get_icons()
         end }
     use("nvim-lualine/lualine.nvim")
@@ -45,6 +45,14 @@ return require('packer').startup(function(use)
     use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
+    use {
+      'NeogitOrg/neogit',
+      requires = {
+          {'nvim-lua/plenary.nvim'}, -- required
+          {'sindrets/diffview.nvim'}, -- optional, for diff integration
+          {'nvim-telescope/telescope.nvim'}, -- optional, for enhanced fuzzy finding
+      }
+  }
     use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context")
     use("vim-test/vim-test")
@@ -94,17 +102,6 @@ return require('packer').startup(function(use)
             require('crates').setup()
         end,
     }
-
-    use({
-        "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
-    })
-
 
     use("github/copilot.vim")
 end)
