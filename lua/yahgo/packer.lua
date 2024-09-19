@@ -21,19 +21,6 @@ return require('packer').startup(function(use)
         end
     })
 
-    use({
-        "folke/trouble.nvim",
-        config = function()
-            require("trouble").setup {
-                icons = false,
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    })
-
-
     use("towolf/vim-helm")
     use("nvim-tree/nvim-tree.lua")
     use { "nvim-tree/nvim-web-devicons",
@@ -102,6 +89,9 @@ return require('packer').startup(function(use)
             require('crates').setup()
         end,
     }
+
+    use 'puremourning/vimspector'
+    use 'OmniSharp/omnisharp-vim'
 
     use("github/copilot.vim")
 end)
