@@ -16,10 +16,8 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 --system clipboard  
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
@@ -60,3 +58,11 @@ vim.keymap.set("i", "[", "[]<left>")
 vim.keymap.set("i", "{", "{}<left>")
 vim.keymap.set("i", "{;", "{};<left><left>")
 vim.keymap.set("i", "/*", "/**/<left><left>")
+
+
+-- quickfix list navigation
+-- can c-q will make the results from telescope into a quickfix list
+-- alt-q will open the quickfix list
+vim.keymap.set("n", "<A-q>", ":copen<CR>")                  -- Alt+q opens quickfix list
+vim.keymap.set("n", "<A-j>", ":cnext<CR>")                  -- Alt+j goes to next quickfix item
+vim.keymap.set("n", "<A-k>", ":cprev<CR>")                  -- Alt+k goes to previous quickfix item

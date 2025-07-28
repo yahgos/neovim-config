@@ -13,15 +13,8 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
-
-    use("towolf/vim-helm")
+    use { "rose-pine/neovim", as = "rose-pine" }
+    vim.cmd('colorscheme rose-pine')
     use("nvim-tree/nvim-tree.lua")
     use { "nvim-tree/nvim-web-devicons",
         config = function()
@@ -29,7 +22,6 @@ return require('packer').startup(function(use)
         end }
     use("nvim-lualine/lualine.nvim")
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
     use {
@@ -40,10 +32,7 @@ return require('packer').startup(function(use)
           {'nvim-telescope/telescope.nvim'}, -- optional, for enhanced fuzzy finding
       }
   }
-    use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context")
-    use("vim-test/vim-test")
-    use("ThePrimeagen/vim-be-good")
     use {
         'numToStr/Comment.nvim',
         config = function()
@@ -55,29 +44,17 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end }
 
+
+    use 'mason-org/mason.nvim'
+    use 'neovim/nvim-lspconfig'
     use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
-        requires = {
-            -- LSP Support
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
-            { 'neovim/nvim-lspconfig' },
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-            { 'rafamadriz/friendly-snippets' },
-        }
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
     }
-
     use 'mfussenegger/nvim-dap'
     use 'theHamsta/nvim-dap-virtual-text'
 
@@ -91,7 +68,6 @@ return require('packer').startup(function(use)
     }
 
     use 'puremourning/vimspector'
-    use 'OmniSharp/omnisharp-vim'
 
     use("github/copilot.vim")
 end)
